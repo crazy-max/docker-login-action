@@ -1,4 +1,5 @@
 import * as aws from './aws';
+import * as dockerhub from './dockerhub';
 import * as core from '@actions/core';
 
 import {Docker} from '@docker/actions-toolkit/lib/docker/docker';
@@ -7,6 +8,11 @@ export async function login(registry: string, username: string, password: string
   if (/true/i.test(ecr) || (ecr == 'auto' && aws.isECR(registry))) {
     await loginECR(registry, username, password);
   } else {
+    if (dockerhub.isDockerHubOIDC(registry, username, password)) {
+      const credentials = await dockerhub.getOIDCToken(registry, username);
+      username = credentials.username;
+      password = credentials.token;
+    }
     await loginStandard(registry, username, password);
   }
 }
