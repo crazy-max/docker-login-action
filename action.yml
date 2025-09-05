@@ -24,6 +24,9 @@ inputs:
     description: 'Log out from the Docker registry at the end of a job'
     default: 'true'
     required: false
+  logins:
+    description: 'Add other registries to authenticate to, defined as YAML objects'
+    required: false
 
 runs:
   using: 'node20'

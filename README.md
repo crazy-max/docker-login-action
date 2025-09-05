@@ -507,6 +507,7 @@ The following inputs can be used as `step.with` keys:
 | `password` | String |         | Password or personal access token for authenticating the Docker registry      |
 | `ecr`      | String | `auto`  | Specifies whether the given registry is ECR (`auto`, `true` or `false`)       |
 | `logout`   | Bool   | `true`  | Log out from the Docker registry at the end of a job                          |
+| `logins`   | YAML   |         | Add other registries to authenticate to, defined as YAML objects              |
 
 ## Contributing
 
