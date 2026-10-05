@@ -62,7 +62,6 @@ export function getAuthList(inputs: Inputs): Array<Auth> {
         username: auth.username,
         password: auth.password,
         scope: auth.scope,
-        // YAML parses an unquoted `ecr: false` as a boolean, keep it instead of falling back to auto
         ecr: String(auth.ecr ?? '') || 'auto',
         configDir: scopeToConfigDir(registry, auth.scope)
       };

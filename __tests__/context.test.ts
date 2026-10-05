@@ -176,7 +176,7 @@ test.each([
   ['true', 'true'],
   ['auto', 'auto'],
   ['""', 'auto']
-])('getAuthList keeps registry-auth ecr: %s', async (ecr, expected) => {
+])('getAuthList normalizes registry-auth ecr: %s', (ecr, expected) => {
   const [auth] = getAuthList({
     registry: '',
     username: '',
